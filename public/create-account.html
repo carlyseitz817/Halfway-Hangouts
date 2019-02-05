@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <!-- styling-->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Jump-Start</title>
+</head>
+
+<body>
+
+    <!-- company logo -->
+    <div class="row" id="companyLogo">
+        <div class="col-6 offset-3 text-center">
+            <div>
+                <img src="https://i.ebayimg.com/images/g/8yEAAOSwRLZUJDbh/s-l300.jpg" alt="Welcome to Dunder Mifflin">
+            </div>
+        </div>
+    </div>
+
+    <!-- welcome page login -->
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div id="loginBlock">
+                <p class="signIn" align="center">Choose Account Type</p>
+                <hr>
+                <form class="form1">
+                    <div class="row">
+                        <div class="col-4 offset-1 text-center">
+                            <input type="button" class="btn btn-lg" id="managerPick" onclick="changeColor()" value="Manager">
+                        </div>
+                        <div class="col-4 offset-1 text-center">
+                            <input type="button" class="btn btn-lg" id="employeePick" onclick="changeColor2()" value="Employee">
+                        </div>
+                        <br><br><br>
+                    </div>
+                    <input class="loginInputs" id="nameInput" type="text" align="center" placeholder="Username">
+                    <input class="loginInputs" id="passwordInput" type="password" align="center" placeholder="Password">
+                    <input class="loginInputs" id="emailInput" align="center" placeholder="Email">
+                    <!-- <p class="signInButton" align="center">Submit</p> -->
+                    <br><br>
+                    <div class="row">
+                        <div class="col-4 offset-4 text-center">
+                            <input type="submit" class="btn btn-lg" id="createSubmit">
+                        </div>
+                    </div>
+
+                </form>
+                <!-- <br>
+            <div id="createAccount2">
+                
+            <div class="col-6 offset-3 text-center">
+               <a href="./createAccount.html" target="_blank" class="createAccount" align="center">Don't have an account?</a>
+            </div>
+            </div> -->
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+<script src="assets/javascript/login.js"></script>
+<script>
+    var count = 1;
+
+    function changeColor() {
+        if (count == 0) {
+            document.getElementById("managerPick").style.background = "rgb(21, 92, 184)";
+            count = 1;
+        } else {
+            document.getElementById("managerPick").style.background = "green";
+            count = 0;
+        }
+    }
+
+    function changeColor2() {
+        if (count == 0) {
+            document.getElementById("employeePick").style.background = "rgb(21, 92, 184)";
+            count = 1;
+        } else {
+            document.getElementById("employeePick").style.background = "green";
+            count = 0;
+        }
+    }
+</script>
+
+</html>

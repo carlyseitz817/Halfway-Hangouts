@@ -1,0 +1,188 @@
+/* background parallax scroll */
+* {
+    color: black;
+  }
+  
+  body {
+    background-image: url("../assets/img/office\ background.jpg");
+    min-height: 400px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    overflow: scroll;
+  }
+  
+  #companyLogo {
+    opacity: .75;
+    display: block;
+    /* margin: 5px; */
+    text-align: center;
+    background-position: center top;
+  }
+  
+  #loginBlock,
+  #createAccountBlock {
+    background: rgba(80, 105, 128, 0.6);
+    width: 350px;
+    height: 432px;
+    margin: 2.1em auto;
+    box-shadow: 0px 11px 28px .5px black;
+  }
+  
+  .signIn,h3 {
+    padding-top: 35px;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    font-size: 23px;
+  }
+  
+  #instructText{
+    color: black;
+  }
+  
+  .startgame, .answer{
+    background: rgb(14, 79, 165);
+    color: white;
+  }
+  
+  .emailInput,
+  .passwordInput, .loginInputs {
+    width: 76%;
+    /* color: rgb(20, 142, 203); */
+    color: rgb(14, 79, 165);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: white;
+    padding: 10px 20px;
+    border: none;
+    /* border-radius: 20px; */
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgb(20, 142, 203));
+    /* margin-bottom: 50px; */
+    margin-left: 46px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: 'Ubuntu', sans-serif;
+  }
+  
+  .signInButton {
+    color: white;
+    cursor: pointer;
+    width: 76%;
+    font-weight: 540;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgb(223, 100, 86);
+    padding: 11px 100px;
+    /* border: none; */
+    /* border-radius: 40px; */
+    /* outline: none; */
+    /* box-sizing: border-box; */
+    /* border: 2px solid rgb(20, 142, 203)); */
+    margin-top: 22px;
+    margin-left: 45px;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+  }
+  
+  #createSubmit {
+    color: white;
+    background: rgb(223, 100, 86);
+  }
+  
+  #managerPick,
+  #employeePick {
+    color: white;
+    background: rgb(21, 92, 184);
+  }
+  
+  .forgotPassword {
+    cursor: pointer;
+    width: 76%;
+    color: white;
+    font-weight: 540;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgb(102, 99, 126);
+    padding: 11px 60px;
+    /* border: none; */
+    /* border-radius: 40px; */
+    /* outline: none; */
+    /* box-sizing: border-box; */
+    /* border: 2px solid rgb(20, 142, 203)); */
+    /* margin-top: 20px; */
+    margin-top: -8px;
+    margin-bottom: 20px;
+  
+    margin-left: 45px;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+  }
+  
+  #createAccount2 {
+    background: rgba(46, 86, 122, 0.6);
+    padding-top: 10px;
+    padding-bottom: 15px;
+  }
+  
+  .list-group-item {
+    line-height: 2.5;
+  }
+  
+  a {
+    color: white;
+    font-weight: 630;
+    font-size: 16px;
+    text-decoration: none;
+  }
+  
+  .row {
+    font-size: 18px;
+  }
+  
+  #navbarID {
+    background: rgba(46, 86, 122, 0.6);
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+  }
+  
+  #navbarName {
+    color: white;
+  }
+  
+  /* #chatNavbarLogout{
+    float: right;
+  } */
+  
+  
+  
+  /* #submitmsg {
+    background: rgba(46, 86, 122, 0.6);
+  }
+  
+  #usermsg {
+    color: rgb(14, 79, 165);
+  } */
+  
+  #logoutBtn {
+    color: black;
+  }
+  
+  
+  #chatBlock {
+    background: rgba(255, 255, 255, 0.63);
+    width: 1000px;
+    height: 600px;
+    margin: 2.1em auto;
+    box-shadow: 0px 11px 28px .5px black;
+    /* overflow: scroll; */
+  }
+  
+  #errorBox {
+    background: rgba(80, 105, 128, 0.6);
+  }
