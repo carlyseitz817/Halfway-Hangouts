@@ -1,0 +1,128 @@
+<html>
+  <head>
+  <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js"
+  type="text/javascript" charset="utf-8"></script>
+  <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js"
+  type="text/javascript" charset="utf-8"></script>
+  <script src="http://js.api.here.com/v3/3.0/mapsjs-mapevents.js" 
+     type="text/javascript" charset="utf-8"></script>
+  <script src="http://js.api.here.com/v3/3.0/mapsjs-ui.js" 
+      type="text/javascript" charset="utf-8"></script>
+  <link rel="stylesheet" type="text/css" href="http://js.api.here.com/v3/3.0/mapsjs-ui.css" />
+  </head>
+  <body>
+
+
+  <div id="mapContainer"></div>
+
+  <input id="address1"><button id="findme">FIND ME</button>
+
+  <script>
+
+    var address = '';
+
+      var address = '6916 Sperry St, Dallas, TX';
+  
+      $("#findme").on('click', function (){
+        address = $("#address1").val().trim();
+    
+
+    //------------------Initialize Map-------------------//
+
+
+
+    // Initialize the platform object:
+    var platform = new H.service.Platform({
+    'app_id': 'qXr6JxTSNIjGC5Oz6R2u',
+    'app_code': 'dYXcTWDO6R-CHChaYaULZA'
+    });
+
+    //needed for the geocoding
+    var targetElement = document.getElementById('mapContainer');
+
+    // Obtain the default map types from the platform object
+    var defaultLayers = platform.createDefaultLayers();
+
+    // Instantiate (and display) a map object:
+    var map = new H.Map(
+    document.getElementById('mapContainer'),
+    defaultLayers.normal.map,
+    {
+      zoom: 10,
+      center: { lat: 30.27, lng: -97.74 }
+    });
+
+    // Create the default UI:
+    var ui = H.ui.UI.createDefault(map, defaultLayers);
+
+
+
+    //------------------Gecoding - Grabbing an Address------------------//
+
+
+
+
+    console.log(address);
+
+    // Create the parameters for the geocoding request:
+    var geocodingParams = {
+      searchText: address
+    };
+
+    // Define a callback function to process the geocoding response:
+    var onResult = function(result) {
+      var locations = result.Response.View[0].Result,
+      position,
+      marker;
+    // Add a marker for each location found
+    for (i = 0;  i < locations.length; i++) {
+      position = {
+        lat: locations[i].Location.DisplayPosition.Latitude,
+      lng: locations[i].Location.DisplayPosition.Longitude
+    };
+    marker = new H.map.Marker(position);
+    map.addObject(marker);
+    }
+    };
+
+    // Get an instance of the geocoding service:
+    var geocoder = platform.getGeocodingService();
+
+    // Call the geocode method with the geocoding parameters,
+    // the callback and an error callback function (called if a
+    // communication error occurs):
+    geocoder.geocode(geocodingParams, onResult, function(e) {
+      alert(e);
+  });
+
+
+
+    //------------------Enabling Tap Event-------------------//
+
+
+
+    // Enable the event system on the map instance:
+    var mapEvents = new H.mapevents.MapEvents(map);
+
+    // Add event listener:
+    map.addEventListener('tap', function(evt) {
+      // Log 'tap' and 'mouse' events:
+
+    });
+
+    // Instantiate the default behavior, providing the mapEvents object: 
+    var behavior = new H.mapevents.Behavior(mapEvents);
+
+
+    });
+
+
+
+
+
+  </script>
+  </body>
+</html>
