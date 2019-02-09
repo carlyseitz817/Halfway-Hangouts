@@ -30,7 +30,7 @@
     var geocode1 = [];
     var geocode2 = [];
   
-    
+    var totalLength;
 
     //---------------------------------------------------//
     //------------------Initialize Map-------------------//
@@ -41,7 +41,7 @@
     // Initialize the platform object:
     var platform = new H.service.Platform({
         'app_id': 'qXr6JxTSNIjGC5Oz6R2u',
-    'app_code': 'dYXcTWDO6R-CHChaYaULZA'
+        'app_code': 'dYXcTWDO6R-CHChaYaULZA'
     });
 
     //needed for the geocoding
@@ -130,12 +130,12 @@
       searchText: address
     };
     
-
     // Define a callback function to process the geocoding response:
     var onResult = function(result) {
         var locations = result.Response.View[0].Result,
       position,
       marker;
+
     // Add a marker for each location found
     for (i = 0;  i < locations.length; i++) {
         position = {
@@ -170,10 +170,8 @@
 $("#route").on('click', function(){
 
     geocode1 = geocode1.map(String);
-    console.log(geocode1);
 
     var waypoint0 = 'geo!' + geocode1[0] + ',' + geocode1[1];
-    console.log(waypoint0);
 
     geocode2 = geocode2.map(String);
 
@@ -205,6 +203,36 @@ var onResult = function(result) {
   route = result.response.route[0];
   // Pick the route's shape:
   routeShape = route.shape;
+
+    //console.log testing for finding the data from the response
+    console.log(result.response.route[0].shape.length);
+    totalLength = result.response.route[0].shape.length;
+    var midpoint = totalLength/2;
+    midpoint = Math.round(midpoint);
+    console.log(midpoint);
+    console.log(result.response.route[0].shape[midpoint]);
+
+    var halfwaycoordinates = result.response.route[0].shape[midpoint];
+    halfwayfcoordinatesarray = halfwaycoordinates.split(",");
+    console.log(halfwayfcoordinatesarray);
+
+    // Define a variable holding SVG mark-up that defines an icon image:
+    var svgMarkup = '<svg width="24" height="24" ' +
+                    'xmlns="http://www.w3.org/2000/svg">' +
+                    '<rect stroke="white" fill="#1b468d" x="1" y="1" width="22" ' +
+                    'height="22" /><text x="12" y="18" font-size="12pt" ' +
+                    'font-family="Arial" font-weight="bold" text-anchor="middle" ' +
+                    'fill="white">H</text></svg>';
+
+    // Create an icon, an object holding the latitude and longitude, and a marker:
+    var icon = new H.map.Icon(svgMarkup),
+        coords = {lat: halfwayfcoordinatesarray[0], lng: halfwayfcoordinatesarray[1]},
+        marker = new H.map.Marker(coords, {icon: icon});
+
+   // Add the marker to the map and center the map at the location of the marker:
+    map.addObject(marker);
+    map.setCenter(coords);
+
 
   // Create a linestring to use as a point source for the route line
   linestring = new H.geo.LineString();
