@@ -204,6 +204,7 @@ var onResult = function(result) {
   // Pick the route's shape:
   routeShape = route.shape;
 
+    //code for the finding the mid point.
     //console.log testing for finding the data from the response
     console.log(result.response.route[0].shape.length);
     totalLength = result.response.route[0].shape.length;
@@ -212,6 +213,7 @@ var onResult = function(result) {
     console.log(midpoint);
     console.log(result.response.route[0].shape[midpoint]);
 
+    //The halfwatcoordinatesarray has the followign format = [lat,lng], so you can acesses just by calling the array
     var halfwaycoordinates = result.response.route[0].shape[midpoint];
     halfwayfcoordinatesarray = halfwaycoordinates.split(",");
     console.log(halfwayfcoordinatesarray);
