@@ -5,60 +5,117 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <!-- bootstrap-->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous">
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"></script>
-   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"></script>
-   <!-- jQuery CDN -->
-   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-      crossorigin="anonymous"></script>
-   <!-- styling-->
-   <link rel="stylesheet" href="assets/css/style.css">
-   <title>Jump-Start</title>
+   <link rel="stylesheet" type="text/css" href="http://js.api.here.com/v3/3.0/mapsjs-ui.css" />
+   <link href="https://fonts.googleapis.com/css?family=Karla:400,700,700i|Montserrat:400,400i,500,500i,600,600i,700,700i,800,800i"
+      rel="stylesheet">
+   <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="assets/css/style-2.css">
+   <script src="https://code.iconify.design/1/1.0.0-rc6/iconify.min.js"></script>
+   <title>Halfway Hangouts</title>
 </head>
 
-<body>
-
-   <!-- company logo -->
-   <div class="row" id="companyLogo">
-      <div class="col-6 offset-3 text-center">
-         <div>
-            <img src="https://i.ebayimg.com/images/g/8yEAAOSwRLZUJDbh/s-l300.jpg" alt="Welcome to Dunder Mifflin">
+<body class="bg-blue-lighter">
+   <div class="bg-purple p-6 sticky">
+      <div class="m-auto w-3/4 flex items-center justify-between flex-wrap">
+         <div class="flex items-center flex-no-shrink text-white justify-start">
+            <a href="index.html" class="bold no-underline text-white">
+               <h2>HALFWAY
+                  HANGOUTS</h2>
+            </a>
+         </div>
+         <div class="block lg:flex lg:w-1/2 justify-end">
+            <div class="nav-items text-xl karla-bold lg:flex-grow">
+               <a href="#responsive-header" class="no-underline block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
+                  ABOUT
+               </a>
+               <a href="#responsive-header" class="no-underline block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
+                  CONTACT
+               </a>
+               <a href="#responsive-header" class="no-underline block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white">
+                  DEVELOPERS
+               </a>
+               <a href="#" role="button" id="login-link-button" class="inline-block text-lg px-4 py-2 no-underline text-white font-semibold leading-none text-white border-white hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0">Login/Register</a>
+            </div>
          </div>
       </div>
    </div>
-
    <!-- welcome page login -->
    <div class="row">
       <div class="col-6 offset-3">
-         <div id="loginBlock">
-            <p class="signIn" align="center">Welcome</p>
-            <form class="form1">
-               <input class="emailInput" type="email" align="center" placeholder="Username">
-               <input class="passwordInput" type="password" align="center" placeholder="Password">
-               <p class="signInButton" align="center">Sign In</p>
-               <p class="forgotPassword" align="center"><a href="#"></a>Forgot Password?</p>
-            </form>
-            <br>
-            <div id="createAccount2">
-                
-            <div class="col-6 offset-3 text-center">
-               <a href="./create-account.html" target="_blank" class="createAccount" align="center">Don't have an account?</a>
+         <div class="login-form-side w-1/4 pin-t pin-r">
+            <div class="widget-heading">
+               <h3 class="widget-title">Sign in</h3>
+               <a href="#" role="button" class="no-underline text-white widget-close align-middle">CLOSE</a>
             </div>
-            </div>
+            <form class="h-full bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+               <div class="mb-4">
+                  <label class="block text-grey-darker text-sm font-bold mb-2" for="username">
+                     Email
+                  </label>
+                  <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline"
+                     id="username" type="text" placeholder="Username">
+               </div>
+               <div class="mb-4">
+                  <label class="block text-grey-darker text-sm font-bold mb-2" for="username">
+                     Password
+                  </label>
+                  <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline"
+                     id="username" type="text" placeholder="Username">
+               </div>
+               <div class="flex items-center justify-between">
+                  <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                     type="button">
+                     Sign In
+                  </button>
+
+                  <a class="inline-block align-baseline font-bold text-sm text-blue hover:text-blue-darker" href="#">
+                     Forgot Password?
+                  </a>
+               </div>
+
+               <hr class="h-px bg-grey-light">
+               <div class="mb-xs-4 mt-xs-4 bb-xs-1 text-center" style="line-height:0;">
+                  <span class="bg-white p-xs-2 vertical-align-bottom text-gray-lighter" style="/* line-height:0; */">
+                     OR
+                  </span>
+               </div>
+               <div class="text-center w-full mt-4 fb-login-button" onclick="facebookSignIn()" data-size="large"
+                  data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
+               <hr class="h-px bg-grey-light">
+               <div class="text-center">
+                  <span class="iconify text-grey-light" data-icon="simple-line-icons:user" data-inline="false"
+                     data-width="4em" data-height="4em"></span>
+                  <div class="register-question mt-4"> <span class="create-account-text">No account yet?</span> <a
+                        class="btn btn-style-link" href="my-account.html">Create an Account</a></div>
+               </div>
+               <hr class="h-px bg-grey-light">
          </div>
+
       </div>
    </div>
+   
+   <div id="mapContainer" style="width: 800px; height: 500px"></div>
+
+   <input id="address1"><button id="findme1">FIND ME</button>
+   <input id="address2"><button id="findme2">FIND ME</button>
+ 
+   <button id="route">Route It</button>
+
+   <!-- SCRIPTS FOR MAPS -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+   <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+   <script src="http://js.api.here.com/v3/3.0/mapsjs-mapevents.js" type="text/javascript" charset="utf-8"></script>
+   <script src="http://js.api.here.com/v3/3.0/mapsjs-ui.js" type="text/javascript" charset="utf-8"></script>
+   <script src="http://js.api.here.com/v3/3.0/mapsjs-places.js" type="text/javascript" charset="utf-8"></script>
 
    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
-
-   <script src="https://code.jquery.com/jquery.js"></script>
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"></script>
    <script src="assets/javascript/login.js"></script>
+   <script src="assets/javascript/app.js"></script>
 
 
 </body>

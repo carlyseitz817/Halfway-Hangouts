@@ -8,30 +8,82 @@ var config = {
     messagingSenderId: "798688988815"
 };
 
-firebase.initializeApp(config);
 
-var providerFB = new firebase.auth.FacebookAuthProvider();
 
-firebase.auth().signInWithRedirect(providerFB);
+window.fbAsyncInit = function () {
+    FB.init({
+        appId: '459732927895171',
+        xfbml: true,
+        version: 'v3.2'
+    });
+};
 
-firebase.auth().getRedirectResult().then(function (result) {
-    if (result.credential) {
-        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-        var token = result.credential.accessToken;
+(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) { return; }
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+var provider = new firebase.auth.FacebookAuthProvider();
+
+function facebookSignin() {
+    firebase.auth().signInWithRedirect(provider);
+    
+    firebase.auth().getRedirectResult().then(function(result) {
+        if (result.credential) {
+          // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+          var token = result.credential.accessToken;
+          // ...
+        }
+        // The signed-in user info.
+        var user = result.user;
+      }).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
         // ...
-    }
-    // The signed-in user info.
-    var user = result.user;
-}).catch(function (error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // The email of the user's account used.
-    var email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
-    var credential = error.credential;
-    // ...
-});
+      });
+}
+
+function facebookSignout() {
+    firebase.auth().signOut()
+
+        .then(function () {
+            console.log('Signout successful!')
+        }, function (error) {
+            console.log('Signout failed')
+        });
+}
+
+firebase.initializeApp(config);
+// var providerFB = new firebase.auth.FacebookAuthProvider();
+
+// firebase.auth().signInWithRedirect(providerFB);
+
+// firebase.auth().getRedirectResult().then(function (result) {
+//     if (result.credential) {
+//         // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+//         var token = result.credential.accessToken;
+//         // ...
+//     }
+//     // The signed-in user info.
+//     var user = result.user;
+// }).catch(function (error) {
+//     // Handle Errors here.
+//     var errorCode = error.code;
+//     var errorMessage = error.message;
+//     // The email of the user's account used.
+//     var email = error.email;
+//     // The firebase.auth.AuthCredential type that was used.
+//     var credential = error.credential;
+//     // ...
+// });
 
 // // Global variable
 // let currentuser;
