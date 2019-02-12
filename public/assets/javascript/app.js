@@ -6,6 +6,12 @@ function clickStuff() {
     $(".widget-close").click(function () {
         // event.preventDefault(),
         $(".login-form-side").hide();
+        $(".sign-up-form").hide();
+        $(".sign-in-stuff").show();
+    });
+    $("#create-link").click(function() {
+        $(".sign-up-form").show();
+        $(".sign-in-stuff").hide();
     });
 }
 
