@@ -110,8 +110,7 @@ $("#sign-in").on("click", function (event) {
     firebase.auth().signInWithEmailAndPassword(email, password).then(function () {
         console.log("sign in successful.");
         // window.location = "home";
-        $("#login-link-button").html('<a href="my-account.html" class="no-underline block mt-4 lg:inline-block lg:mt-0 text-white mr-4">MY ACCOUNT</a>');
-        $(".login-form-side").hide();
+        // $("#login-link-button").html('<a href="my-account.html" class="no-underline block mt-4 lg:inline-block lg:mt-0 text-white mr-4">MY ACCOUNT</a>');
     },
         function (error) {
             // Handle Errors here.
@@ -122,97 +121,112 @@ $("#sign-in").on("click", function (event) {
         });
 
     // // sign up - check your firebase authorization
-    // firebase.auth().createUserWithEmailAndPassword(email, password).then(function () {
-    //     console.log("sign up successful.");
-    //     $("#login-link-button").html('<a href="my-account.html" class="no-underline block mt-4 lg:inline-block lg:mt-0 text-white mr-4">MY ACCOUNT</a>');
-    //     // window.location = "index.html";
-    // }, function (error) {
-    //     // Handle Errors here.
-    //     var errorCode = error.code;
-    //     var errorMessage = error.message;
-    //     console.log(errorCode);
-    //     console.log(errorMessage);
-    // });
-});
-
-// Capture Login Button Click
-// $("#sign-in").on("click", function (event) {
-//     // Don't refresh the page!
-//     event.preventDefault();
-
-//     // Capture User Inputs and store them into variables
-//     var email = $(".email").val().trim();
-//     var password = $(".passwordInput").val().trim();
-
-//     // loggin - test in incognito
-//     firebase.auth().signInWithEmailAndPassword(email, password).then(function () {
-//         console.log("sign in successful.");
-//         // window.location = "home";
-//     }, function (error) {
-//         // Handle Errors here.
-//         var errorCode = error.code;
-//         var errorMessage = error.message;
-//         console.log(errorCode);
-//         console.log(errorMessage);
-//     });
-// });
-
-// $("#logoff").on("click", function (event) {
-
-//     event.preventDefault();
-
-//     firebase.auth().signOut().then(function () {
-//         console.log("sign off successful.");
-//     }, function (error) {
-//         console.log(error);
-//     });
-// });
-
-// — checking if user loggin
-firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-        // User is signed in.
-        var displayName = user.displayName;
-        var email = user.email;
-        var emailVerified = user.emailVerified;
-        var photoURL = user.photoURL;
-        var isAnonymous = user.isAnonymous;
-        var uid = user.uid;
-        var providerData = user.providerData;
-
-        // to Global variable
-        currentuser = user.uid;
-        var idToken = {};
-
-        console.log("loggedin");
-        console.log(uid);
-        $(".status").text("Welcome. You are loggedin.");
-        $(".user-id-display").append(uid);
-
-        // -- sending token
-        user.getIdToken().then(function (data) {
-            // Send Token to backend via HTTP
-
-            idToken = {
-                Authorization: "Bearer " + data
-            }
-
-            $.post("/auth", idToken)
-                .then();
+    $("#sign-up").click(function () {
+        var emailNewUser = $("#usn").val().trim();
+        var passwordNewUser = $("#psw").val().trim();
+        firebase.auth().createUserWithEmailAndPassword(emailNewUser, passwordNewUser).then(function () {
+            console.log("sign up successful.");
+            // $("#login-link-button").html('<a href="my-account.html" class="no-underline block mt-4 lg:inline-block lg:mt-0 text-white mr-4">MY ACCOUNT</a>');
+            // window.location = "index.html";
+            $(".login-form-side").hide();
+        }, function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            console.log(errorCode);
+            console.log(errorMessage);
         });
+    });
 
-        $.get("/api/checkrole/" + user.email, function (data) {
-            console.log(data.role);
-            if (data.role === "employee") {
-                window.location = "chatPage.html";
-            } else {
-                window.location = "manager.html";
-            }
-        })
+    // Capture Login Button Click
+    // $("#sign-in").on("click", function (event) {
+    //     // Don't refresh the page!
+    //     event.preventDefault();
 
-    } else {
-        // User is signed out.
-        $(".status").text("You are not loggedin.");
-        console.log("not loggedin");
-    }
+    //     // Capture User Inputs and store them into variables
+    //     var email = $(".email").val().trim();
+    //     var password = $(".passwordInput").val().trim();
+
+    //     // loggin - test in incognito
+    //     firebase.auth().signInWithEmailAndPassword(email, password).then(function () {
+    //         console.log("sign in successful.");
+    //         // window.location = "home";
+    //     }, function (error) {
+    //         // Handle Errors here.
+    //         var errorCode = error.code;
+    //         var errorMessage = error.message;
+    //         console.log(errorCode);
+    //         console.log(errorMessage);
+    //     });
+    // });
+
+    // $("#logoff").on("click", function (event) {
+
+    //     event.preventDefault();
+
+    //     firebase.auth().signOut().then(function () {
+    //         console.log("sign off successful.");
+    //     }, function (error) {
+    //         console.log(error);
+    //     });
+    // });
+
+    // — checking if user loggin
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            // User is signed in.
+            var displayName = user.displayName;
+            var email = user.email;
+            var emailVerified = user.emailVerified;
+            var photoURL = user.photoURL;
+            var isAnonymous = user.isAnonymous;
+            var uid = user.uid;
+            var providerData = user.providerData;
+
+            // to Global variable
+            currentuser = user.uid;
+            var idToken = {};
+
+            console.log("loggedin");
+            console.log(uid);
+            $(".status").text("Welcome. You are loggedin.");
+            $(".user-id-display").append(uid);
+
+            $(".login-form-side").hide();
+            $("#login-link-button").html('<a href="my-account.html" class="no-underline block mt-4 lg:inline-block lg:mt-0 text-white mr-4">MY ACCOUNT</a>');
+
+            // -- sending token
+            user.getIdToken().then(function (data) {
+                // Send Token to backend via HTTP
+
+                idToken = {
+                    Authorization: "Bearer " + data
+                }
+
+                $.post("/auth", idToken)
+                    .then();
+            });
+
+        }
+        else {
+            // User is signed out.
+            $(".status").text("You are not loggedin.");
+            console.log("not loggedin");
+        }
+    });
 });
+
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+    .then(function () {
+        // Existing and future Auth states are now persisted in the current
+        // session only. Closing the window would clear any existing state even
+        // if a user forgets to sign out.
+        // ...
+        // New sign-in will be persisted with session persistence.
+        return firebase.auth().signInWithEmailAndPassword(email, password);
+    })
+    .catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+    });
