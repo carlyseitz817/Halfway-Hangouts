@@ -1,0 +1,108 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+.title, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Karla', sans-serif;
+    color: white;
+    line-height: 1.4;
+}
+
+h3 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+}
+
+.karla-bold {
+    font-family: 'Karla', sans-serif;
+    font-weight: bold;
+}
+
+.nav-items a {
+    margin-right: 2em;
+}
+
+.login-form-side .widget-heading .widget-title {
+    vertical-align: middle;
+    display: inline-block;
+    color: #fff;
+}
+
+.login-form-side {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+    overflow: auto;
+    z-index: 500;
+    width: 340px;
+}
+
+.widget-heading {
+    color: white;
+    background-color: black;
+    margin-bottom: 20px;
+    padding: 28px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.widget-title {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #1B1919;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 4px;
+    letter-spacing: .6px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    font-size: 24px;
+}
+
+.cart-widget-side .widget-heading .widget-close:after, .cart-widget-side .widget-heading .widget-close:before, .login-form-side .widget-heading .widget-close:after, .login-form-side .widget-heading .widget-close:before {
+    content: " ";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -1px;
+    width: 15px;
+    height: 2px;
+    display: inline-block;
+    background-color: #fff;
+    -webkit-transition: background-color .2s ease-in-out,transform .2s ease-in-out,width .2s ease-in-out;
+    -moz-transition: background-color .2s ease-in-out,transform .2s ease-in-out,width .2s ease-in-out;
+    -o-transition: background-color .2s ease-in-out,transform .2s ease-in-out,width .2s ease-in-out;
+    transition: background-color .2s ease-in-out,transform .2s ease-in-out,width .2s ease-in-out;
+}
+
+.center-button {
+   margin: auto; 
+   justify-content: center;
+}
+
+.social-login-title::before, .social-login-title::after {
+    content: "";
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 0%;
+    flex: 1 0 0%;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-color: #DAE1E7;
+    color: #DAE1E7
+}
+
+hr {
+    margin: 2em 0 2em 0
+}
+
+.fa-times {
+    color: white;
+    font-size: 1.8em;
+}
+  
