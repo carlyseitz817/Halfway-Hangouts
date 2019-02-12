@@ -17,6 +17,14 @@
    <!-- jQuery CDN -->
    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
+   <!--HERE api library-->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+   <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+   <script src="http://js.api.here.com/v3/3.0/mapsjs-mapevents.js" type="text/javascript" charset="utf-8"></script>
+   <script src="http://js.api.here.com/v3/3.0/mapsjs-ui.js" type="text/javascript" charset="utf-8"></script>
+   <script src="http://js.api.here.com/v3/3.0/mapsjs-places.js" type="text/javascript" charset="utf-8"></script>
+   <link rel="stylesheet" type="text/css" href="http://js.api.here.com/v3/3.0/mapsjs-ui.css" />
    <!-- styling-->
    <link rel="stylesheet" href="assets/css/style.css">
    <title>Jump-Start</title>
@@ -54,6 +62,17 @@
          </div>
       </div>
    </div>
+
+   <div id="mapContainer" style="width: 800px; height: 500px"></div>
+
+   <input id="address1">
+   <input id="address2">
+   <button id="search">Search Location</button>
+
+   <div class="places"></div>
+
+    
+   <script src="app.js"></script>
 
    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
 
