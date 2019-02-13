@@ -1,3 +1,34 @@
+new Vue({
+	el: '#app',
+  data: {
+  	open: false,
+  },
+  methods: {
+  	toggle() {
+    	this.open = !this.open
+    }
+  }
+})
+
+function clickStuff() {
+    $("#login-link-button").click(function () {
+        // event.preventDefault(),
+        $(".login-form-side").show();
+    });
+    $(".widget-close").click(function () {
+        // event.preventDefault(),
+        $(".login-form-side").hide();
+        $(".sign-up-form").hide();
+        $(".sign-in-stuff").show();
+    });
+    $("#create-link").click(function() {
+        $(".sign-up-form").show();
+        $(".sign-in-stuff").hide();
+    });
+}
+
+clickStuff();
+
 var address = '';
     var geocode1 = [];
     var geocode2 = [];
@@ -292,6 +323,7 @@ var searchPlaces = function(latLng) {
         apiData.results.items.forEach(function(places) {
         console.log(places.title);
         console.log(places.position);
+        $(".results").show();
         $(".places").append(places.title + "<br><p id='location'>Location: " + places.position + "</p><br><br>");
         
         })
@@ -323,3 +355,69 @@ var searchPlaces = function(latLng) {
     explore.request(params, {}, onResult, onError);
     
 };
+
+window.addEventListener('resize', function () {
+    map.getViewPort().resize(); 
+});
+
+// // BEGIN ENID'S SCRIPT
+function opentab(evt, tabName) {
+
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+function field_focus(field, email)
+{
+  if(field.value == email)
+  {
+    field.value = '';
+  }
+}
+
+function field_blur(field, email)
+{
+  if(field.value == '')
+  {
+    field.value = email;
+  }
+}
+
+//Fade in dashboard box
+$(document).ready(function(){
+  $('.box').hide().fadeIn(1000);
+
+  $("#password_reset").click(function () {
+      if($('#current_password').val() == ""){
+        $('#current_password_label').html("Current Password Required");
+      }else{
+        $('#current_password_label').html("");
+      }
+
+      if($('#new_password').val() == ""){
+        $('#new_password_label').html("New Password Required");
+      }else{
+        $('#new_password_label').html("");
+      }
+
+      if($('#confirm_password').val() == ""){
+        $('#confirm_password_label').html("Confirm Password Required");
+      }else if($('#confirm_password').val() != $('#new_password').val()){
+        $('#confirm_password_label').html("Confirm Password Do Not Match");
+      }else{
+        $('#confirm_password_label').html("");
+      }
+  });
+});
+
+// // END ENID'S SCRIPT
